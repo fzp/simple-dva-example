@@ -1,25 +1,33 @@
 import logo from './logo.svg';
+import { connect } from 'react-redux'
 import './App.css';
 
-function App() {
+function App(props) {
+  function changeText() {
+    props.dispatch({
+      type: 'app/changeText',
+      text: "Hello",
+    });
+  }
+
+  function changeTextAsync() {
+    props.dispatch({
+      type: 'app/changeTextAsync',
+      text: "Hello After 1 Second",
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {props.text}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={changeText}>Change Text</button>
+        <button onClick={changeTextAsync}>Change Text After 1 Second</button>
       </header>
     </div>
   );
 }
 
-export default App;
+export default connect((state)=>{return state.app})(App);
