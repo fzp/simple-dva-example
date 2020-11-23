@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# simple-dva-example
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An example of using https://github.com/fzp/simple-dva.git
 
 ## Available Scripts
 
